@@ -1,0 +1,204 @@
+<html><head><base href="https://api.websim.ai/habits/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hábitos Saludables - Portal Interactivo</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f4f8fb;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+    }
+    h1 {
+        margin: 0;
+    }
+    .search-container {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
+    #search-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .habit-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .habit-option {
+        background-color: #ecf0f1;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .habit-option:hover {
+        background-color: #3498db;
+        color: white;
+    }
+    #habit-info {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .habit-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .fade-in {
+        animation: fadeIn 0.5s ease-in;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>Hábitos Saludables</h1>
+</header>
+<div class="container">
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Busca información sobre hábitos...">
+        <div class="habit-options">
+            <button class="habit-option" onclick="showHabitInfo('ejercicio')">Ejercicio Diario</button>
+            <button class="habit-option" onclick="showHabitInfo('alimentacion')">Alimentación Balanceada</button>
+            <button class="habit-option" onclick="showHabitInfo('sueño')">Buen Descanso</button>
+            <button class="habit-option" onclick="showHabitInfo('meditacion')">Meditación</button>
+            <button class="habit-option" onclick="showHabitInfo('lectura')">Lectura Regular</button>
+        </div>
+    </div>
+    <div id="habit-info" style="display: none;"></div>
+</div>
+
+<script>
+function showHabitInfo(habit) {
+    const habitInfo = document.getElementById('habit-info');
+    let content = '';
+
+    switch(habit) {
+        case 'ejercicio':
+            content = `
+                <h2>Ejercicio Diario</h2>
+                <img class="habit-image" src="ejercicio-diario.jpg" alt="Persona haciendo ejercicios al aire libre" width="800" height="500">
+                <p>El ejercicio diario es fundamental para mantener una buena salud física y mental. Algunos beneficios incluyen:</p>
+                <ul>
+                    <li>Mejora la salud cardiovascular</li>
+                    <li>Fortalece los músculos y huesos</li>
+                    <li>Reduce el estrés y mejora el estado de ánimo</li>
+                    <li>Ayuda a mantener un peso saludable</li>
+                </ul>
+                <p>Se recomienda realizar al menos 30 minutos de actividad física moderada la mayoría de los días de la semana.</p>
+            `;
+            break;
+        case 'alimentacion':
+            content = `
+                <h2>Alimentación Balanceada</h2>
+                <img class="habit-image" src="alimentacion-balanceada.jpg" alt="Plato con variedad de alimentos saludables" width="800" height="500">
+                <p>Una alimentación balanceada es esencial para mantener una buena salud. Esto implica:</p>
+                <ul>
+                    <li>Consumir una variedad de frutas y verduras</li>
+                    <li>Incluir proteínas magras en la dieta</li>
+                    <li>Optar por granos integrales</li>
+                    <li>Limitar el consumo de azúcares y grasas saturadas</li>
+                </ul>
+                <p>Recuerda que una dieta equilibrada proporciona los nutrientes necesarios para el funcionamiento óptimo del cuerpo.</p>
+            `;
+            break;
+        case 'sueño':
+            content = `
+                <h2>Buen Descanso</h2>
+                <img class="habit-image" src="buen-descanso.jpg" alt="Persona durmiendo plácidamente" width="800" height="500">
+                <p>Dormir bien es crucial para la salud física y mental. Un buen descanso:</p>
+                <ul>
+                    <li>Mejora la concentración y productividad</li>
+                    <li>Fortalece el sistema inmunológico</li>
+                    <li>Reduce el riesgo de enfermedades crónicas</li>
+                    <li>Ayuda a regular las emociones</li>
+                </ul>
+                <p>Se recomienda dormir entre 7-9 horas por noche para adultos.</p>
+            `;
+            break;
+        case 'meditacion':
+            content = `
+                <h2>Meditación</h2>
+                <img class="habit-image" src="meditacion.jpg" alt="Persona meditando en posición de loto" width="800" height="500">
+                <p>La meditación es una práctica que puede mejorar significativamente tu bienestar mental. Beneficios incluyen:</p>
+                <ul>
+                    <li>Reducción del estrés y la ansiedad</li>
+                    <li>Mejora de la concentración y la atención</li>
+                    <li>Aumento de la autoconciencia</li>
+                    <li>Promoción del bienestar emocional</li>
+                </ul>
+                <p>Incluso 5-10 minutos de meditación diaria pueden hacer una gran diferencia en tu vida.</p>
+            `;
+            break;
+        case 'lectura':
+            content = `
+                <h2>Lectura Regular</h2>
+                <img class="habit-image" src="lectura-regular.jpg" alt="Persona leyendo un libro en un ambiente acogedor" width="800" height="500">
+                <p>La lectura regular ofrece numerosos beneficios para la mente y el bienestar general:</p>
+                <ul>
+                    <li>Estimula la mente y mejora la memoria</li>
+                    <li>Aumenta el conocimiento y el vocabulario</li>
+                    <li>Reduce el estrés y mejora la relajación</li>
+                    <li>Mejora la concentración y las habilidades de pensamiento crítico</li>
+                </ul>
+                <p>Intenta leer al menos 30 minutos al día para experimentar estos beneficios.</p>
+            `;
+            break;
+    }
+
+    habitInfo.innerHTML = content;
+    habitInfo.style.display = 'block';
+    habitInfo.classList.remove('fade-in');
+    void habitInfo.offsetWidth; // Trigger reflow
+    habitInfo.classList.add('fade-in');
+}
+
+document.getElementById('search-input').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        const searchTerm = this.value.toLowerCase();
+        if (searchTerm.includes('ejercicio')) {
+            showHabitInfo('ejercicio');
+        } else if (searchTerm.includes('aliment')) {
+            showHabitInfo('alimentacion');
+        } else if (searchTerm.includes('sueño') || searchTerm.includes('dormir')) {
+            showHabitInfo('sueño');
+        } else if (searchTerm.includes('medit')) {
+            showHabitInfo('meditacion');
+        } else if (searchTerm.includes('leer') || searchTerm.includes('lectura')) {
+            showHabitInfo('lectura');
+        } else {
+            alert('Lo siento, no tenemos información específica sobre ese hábito. ¡Prueba con uno de los botones de arriba!');
+        }
+    }
+});
+</script>
+</body></html>
