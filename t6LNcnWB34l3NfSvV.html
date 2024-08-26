@@ -1,0 +1,157 @@
+<html><head><base href="https://api.websim.ai/habits/"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Información sobre Hábitos</title><style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+.search-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.search-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.search-option {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-option:hover {
+    background-color: #2980b9;
+}
+
+.info-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.habit-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+</style></head><body>
+    <h1>Información sobre Hábitos</h1>
+    
+    <div class="search-container">
+        <h2>Buscador de Hábitos</h2>
+        <p>Selecciona una pregunta para obtener más información:</p>
+        <div class="search-options">
+            <div class="search-option" onclick="showInfo('formar')">¿Cómo formar un hábito?</div>
+            <div class="search-option" onclick="showInfo('tiempo')">¿Cuánto tiempo toma formar un hábito?</div>
+            <div class="search-option" onclick="showInfo('buenos')">¿Cuáles son buenos hábitos?</div>
+            <div class="search-option" onclick="showInfo('romper')">¿Cómo romper malos hábitos?</div>
+        </div>
+    </div>
+
+    <div id="info-container" class="info-container" style="display: none;">
+        <!-- La información se cargará aquí dinámicamente -->
+    </div>
+
+    <script>
+    function showInfo(topic) {
+        const infoContainer = document.getElementById('info-container');
+        let content = '';
+
+        switch(topic) {
+            case 'formar':
+                content = `
+                    <h2>¿Cómo formar un hábito?</h2>
+                    <img class="habit-image" src="https://api.websim.ai/habits/formar-habito.jpg" alt="Persona formando un nuevo hábito, escribiendo en un diario" width="600" height="400">
+                    <p>Formar un hábito requiere consistencia y paciencia. Aquí hay algunos pasos para ayudarte:</p>
+                    <ol>
+                        <li>Elige un hábito simple y específico.</li>
+                        <li>Establece un recordatorio claro.</li>
+                        <li>Practica el hábito todos los días.</li>
+                        <li>Crea un sistema de recompensas.</li>
+                        <li>Se paciente y perseverante.</li>
+                    </ol>
+                `;
+                break;
+            case 'tiempo':
+                content = `
+                    <h2>¿Cuánto tiempo toma formar un hábito?</h2>
+                    <img class="habit-image" src="https://api.websim.ai/habits/tiempo-habito.jpg" alt="Reloj de arena representando el tiempo para formar un hábito" width="600" height="400">
+                    <p>Contrario a la creencia popular de que se necesitan 21 días, estudios recientes sugieren que formar un hábito puede tomar entre 18 y 254 días, con un promedio de 66 días. La duración exacta depende de varios factores:</p>
+                    <ul>
+                        <li>La complejidad del hábito</li>
+                        <li>Tu personalidad y motivación</li>
+                        <li>Tu entorno y circunstancias</li>
+                    </ul>
+                    <p>Lo importante es mantener la consistencia y no desanimarse si toma más tiempo del esperado.</p>
+                `;
+                break;
+            case 'buenos':
+                content = `
+                    <h2>¿Cuáles son buenos hábitos?</h2>
+                    <img class="habit-image" src="https://api.websim.ai/habits/buenos-habitos.jpg" alt="Collage de imágenes representando buenos hábitos: ejercicio, lectura, meditación" width="600" height="400">
+                    <p>Algunos buenos hábitos que pueden mejorar significativamente tu vida incluyen:</p>
+                    <ul>
+                        <li>Ejercicio regular</li>
+                        <li>Lectura diaria</li>
+                        <li>Meditación o mindfulness</li>
+                        <li>Planificación y establecimiento de metas</li>
+                        <li>Alimentación saludable</li>
+                        <li>Dormir suficientes horas</li>
+                        <li>Practicar la gratitud</li>
+                    </ul>
+                `;
+                break;
+            case 'romper':
+                content = `
+                    <h2>¿Cómo romper malos hábitos?</h2>
+                    <img class="habit-image" src="https://api.websim.ai/habits/romper-habitos.jpg" alt="Persona rompiendo una cadena, simbolizando la ruptura de malos hábitos" width="600" height="400">
+                    <p>Romper malos hábitos puede ser desafiante, pero es posible. Aquí hay algunas estrategias efectivas:</p>
+                    <ol>
+                        <li>Identifica tus desencadenantes y evítalos.</li>
+                        <li>Reemplaza el mal hábito con uno positivo.</li>
+                        <li>Visualiza los beneficios de dejar el mal hábito.</li>
+                        <li>Pide apoyo a amigos y familiares.</li>
+                        <li>Celebra los pequeños logros en el camino.</li>
+                        <li>Sé paciente y amable contigo mismo; el cambio lleva tiempo.</li>
+                    </ol>
+                `;
+                break;
+        }
+
+        infoContainer.innerHTML = content;
+        infoContainer.style.display = 'block';
+        infoContainer.classList.remove('fade-in');
+        void infoContainer.offsetWidth; // Trigger a reflow
+        infoContainer.classList.add('fade-in');
+    }
+    </script>
+</body></html>
